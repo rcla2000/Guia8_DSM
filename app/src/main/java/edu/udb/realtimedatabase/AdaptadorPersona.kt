@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import edu.udb.realtimedatabase.datos.Persona
-
+import org.w3c.dom.Text
 
 class AdaptadorPersona(private val context: Activity, var personas: List<Persona>) :
     ArrayAdapter<Persona?>(context, R.layout.persona_layout, personas) {
@@ -22,8 +22,16 @@ class AdaptadorPersona(private val context: Activity, var personas: List<Persona
         rowview = view ?: layoutInflater.inflate(R.layout.persona_layout, null)
         val tvNombre = rowview!!.findViewById<TextView>(R.id.tvNombre)
         val tvDUI = rowview.findViewById<TextView>(R.id.tvDUI)
+        val tvFechaNacimiento = rowview.findViewById<TextView>(R.id.tvFechaNacimiento)
+        val tvGenero = rowview.findViewById<TextView>(R.id.tvGenero)
+        val tvPeso = rowview.findViewById<TextView>(R.id.tvPeso)
+        val tvAltura = rowview.findViewById<TextView>(R.id.tvAltura)
         tvNombre.text = "Nombre : " + personas[position].nombre
         tvDUI.text = "DUI : " + personas[position].dui
+        tvFechaNacimiento.text = "Fecha de nacimiento: " + personas[position].fechaNacimiento
+        tvGenero.text = "Género: " + personas[position].genero
+        tvPeso.text = "Peso: " + personas[position].peso + " lb"
+        tvAltura.text = "Altura: " + personas[position].altura + " m"
         return rowview
     }
 }
